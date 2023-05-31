@@ -14,17 +14,13 @@ export default {
       statements: 80,
     },
   },
-  globals: {
-    'ts-jest': {
-      tsconfig: path.resolve(__dirname, 'tsconfig.json'),
-    },
-  },
+  preset: 'ts-jest',
   moduleDirectories: ['node_modules'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
     '@server(.*)$': `${rootDirectory}/src$1`,
     '@config(.*)$': `${rootDirectory}/src/config$1`,
-    '@tests(.*)$': `${rootDirectory}/__tests__$1`,
+    '@tests(.*)$': `${rootDirectory}/test$1`,
   },
   reporters: [
     'default',
@@ -38,15 +34,15 @@ export default {
   ],
   rootDir: rootDirectory,
   roots: [rootDirectory],
-  setupFilesAfterEnv: [`${rootDirectory}/__tests__/setup.ts`],
+  setupFilesAfterEnv: [`${rootDirectory}/test/setup.ts`],
   testPathIgnorePatterns: [
     '/node_modules/',
     '<rootDir>/build',
-    `${rootDirectory}/__tests__/fixtures`,
-    `${rootDirectory}/__tests__/setup.ts`,
+    `${rootDirectory}/test/fixtures`,
+    `${rootDirectory}/test/setup.ts`,
   ],
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
-  testRegex: ['((/__tests__/.*)|(\\.|/)(test|spec))\\.tsx?$'],
+  testRegex: ['((/test/.*)|(\\.|/)(test|spec))\\.tsx?$'],
 };
