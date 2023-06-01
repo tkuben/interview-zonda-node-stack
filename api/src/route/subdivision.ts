@@ -9,35 +9,35 @@ const subdivisionRouter = express.Router();
 subdivisionRouter.post(
     "/",
     SubdivisionValidator.checkCreateSubdivision(),
-    Middleware.handleValidationErors,
+    Middleware.handleValidationErrors,
     SubdivisionController.create
 );
 
 subdivisionRouter.get(
     '/',
     SubdivisionValidator.checkReadSubdivision(),
-    Middleware.handleValidationErors,
+    Middleware.handleValidationErrors,
     SubdivisionController.read
 );
 
 subdivisionRouter.get(
     '/:id',
     SubdivisionValidator.checkIdParam(),
-    Middleware.handleValidationErors,
+    Middleware.handleValidationErrors,
     SubdivisionController.readById
 );
 
 subdivisionRouter.put(
     '/:id',
     SubdivisionValidator.checkIdParam(),
-    Middleware.handleValidationErors,
+    Middleware.handleValidationErrors,
     SubdivisionController.update
 );
 
 subdivisionRouter.delete(
     '/:id',
     SubdivisionValidator.checkIdParam(),
-    Middleware.handleValidationErors,
+    Middleware.handleValidationErrors,
     SubdivisionController.delete
 );
 
